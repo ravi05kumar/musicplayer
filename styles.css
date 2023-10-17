@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: rgb(209, 225, 220);
+}
+
+.player {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+audio {
+    width: 100%;
+}
+
+button{
+    background-color: rgb(113, 188, 235);
+    border: 1px solid rgb(155, 238, 236);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.music{
+    background-color: rgb(136, 242, 242);
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.playlist {
+    text-align: left;
+}
+
+.playlist li {
+    list-style-type: none;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.playlist li:hover {
+    background-color: #ddd;
+}

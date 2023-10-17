@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="music">
+        <h1>Music Player</h1>
+    </div>
+    <div class="player">
+        <audio id="audio" controls></audio>
+        <ul class="playlist">
+          
+        </ul>
+        <button id="addMusicButton">Add Music</button>
+        <input type="file" id="fileInput" accept=".mp3" style="display: none;">
+    </div>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const playlistItems = document.querySelectorAll('.playlist li');
+        const addMusicButton = document.getElementById('addMusicButton');
+        const fileInput = document.getElementById('fileInput');
+
+        playlistItems.forEach(item => {
+            item.addEventListener('click', function () {
+                audio.src = this.getAttribute('data-src');
+                audio.play();
+            });
+        });
+
+        addMusicButton.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            if (file) {
+                const src = URL.createObjectURL(file);
+                const fileName = file.name;
+                const newItem = document.createElement('li');
+                newItem.textContent = fileName;
+                newItem.setAttribute('data-src', src);
+                newItem.addEventListener('click', function () {
+                    audio.src = this.getAttribute('data-src');
+                    audio.play();
+                });
+                document.querySelector('.playlist').appendChild(newItem);
+            }
+        });
+    </script>
+</body>
+</html>
